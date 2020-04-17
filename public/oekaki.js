@@ -117,14 +117,14 @@ function saveImage(userId) {
 function sendImage(fileName) {
     console.log('***' + fileName);
     return new Promise((resolve, reject) => {
-        liff.sendMessages([{
+        liff.shareTargetPicker([{
             'type': 'image',
             'originalContentUrl': 'https://' + document.domain + '/imgs/' + fileName,
             'previewImageUrl': 'https://' + document.domain + '/imgs/' + fileName
         }]).then(function() {
             //window.alert('Message sent');
             // LIFFを閉じる
-            liff.closeWindow();
+            // liff.closeWindow();
         }).catch(function(error) {
             window.alert('Error sending message: ' + error);
         });
